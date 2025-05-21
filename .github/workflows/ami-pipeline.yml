@@ -14,40 +14,40 @@ jobs:
   stage-1-packer:
     runs-on: ubuntu-latest
     steps:
-      - name: Stage 1 - Packer: Building AMIs
-        run: echo "🟢 Stage 1: Packer - Building AMIs (scaffold step)"
+      - name: Stage 1 - Packer :- Building AMIs
+        run: echo "🟢 Stage 1 :- Packer - Building AMIs (scaffold step)"
 
   stage-2-ansible:
     runs-on: ubuntu-latest
     needs: stage-1-packer
     steps:
-      - name: Stage 2 - Ansible: Configuration Management
-        run: echo "🟢 Stage 2: Ansible - Configuration Management (scaffold step)"
+      - name: Stage 2 - Ansible :- Configuration Management
+        run: echo "🟢 Stage 2 - Ansible - Configuration Management (scaffold step)"
 
   stage-3-terraform:
     runs-on: ubuntu-latest
     needs: stage-2-ansible
     steps:
-      - name: Stage 3 - Terraform: Deploy AMIs
-        run: echo "🟢 Stage 3: Terraform - Deploy AMIs (scaffold step)"
+      - name: Stage 3 - Terraform :- Deploy AMIs
+        run: echo "🟢 Stage 3 :- Terraform - Deploy AMIs (scaffold step)"
 
   stage-4-cicd:
     runs-on: ubuntu-latest
     needs: stage-3-terraform
     steps:
-      - name: Stage 4 - CI/CD: Orchestration
-        run: echo "🟢 Stage 4: CI/CD Automation with GitHub Actions (scaffold step)"
+      - name: Stage 4 - CI/CD :- Orchestration
+        run: echo "🟢 Stage 4:- CI/CD Automation with GitHub Actions (scaffold step)"
 
   stage-5-security:
     runs-on: ubuntu-latest
     needs: stage-4-cicd
     steps:
       - name: Stage 5 - Security and Best Practices
-        run: echo "🟢 Stage 5: Security and Best Practices (scaffold step)"
+        run: echo "🟢 Stage 5:- Security and Best Practices (scaffold step)"
 
   stage-6-final-outcome:
     runs-on: ubuntu-latest
     needs: stage-5-security
     steps:
       - name: Stage 6 - Final Outcome & Review
-        run: echo "✅ Stage 6: Final Outcome – Pipeline complete (scaffold step)"
+        run: echo "✅ Stage 6:- Final Outcome – Pipeline complete (scaffold step)"
