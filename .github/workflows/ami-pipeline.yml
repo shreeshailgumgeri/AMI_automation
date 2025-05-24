@@ -43,6 +43,10 @@ jobs:
         run: |
           packer plugins install github.com/hashicorp/amazon
 
+      - name: Install Packer Ansible plugin
+        run: |
+          packer plugins install github.com/hashicorp/ansible
+          
       - name: Check Packer Version and Plugins
         run: |
           packer version
