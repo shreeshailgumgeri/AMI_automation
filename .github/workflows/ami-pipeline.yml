@@ -28,7 +28,12 @@ jobs:
       - name: Install dependencies
         run: |
           sudo apt-get update
-          sudo apt-get install -y packer ansible
+          sudo apt-get install -y ansible
+
+      - name: Setup Packer
+        uses: hashicorp/setup-packer@v3
+        with:
+          version: "latest"
 
       - name: Run Packer Validate
         run: |
