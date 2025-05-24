@@ -24,7 +24,7 @@
     },
     {
       "type": "ansible",
-      "playbook_file": "ansible/playbooks/provision.yml"
+      "playbook_file": "ansible/playbooks/provision.yaml"
     }
   ]
 }
