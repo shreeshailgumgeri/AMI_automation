@@ -24,7 +24,10 @@
     },
     {
       "type": "ansible",
-      "playbook_file": "ansible/playbooks/provision.yaml"
+      "playbook_file": "ansible/playbooks/provision.yaml",
+      "extra_arguments": [
+        "--roles-path=ansible/roles"
+      ]
     }
   ]
 }

@@ -1,4 +1,5 @@
-- hosts: all
+- name: Provision servers
+  hosts: all
   become: true
   roles:
     - common
