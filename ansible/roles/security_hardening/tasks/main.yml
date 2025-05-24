@@ -1,0 +1,19 @@
+- name: Update apt cache
+  apt:
+    update_cache: yes
+  when: ansible_os_family == "Debian"
+
+- name: Install basic utilities
+  apt:
+    name: [git, curl, htop]
+    state: present
+  when: ansible_os_family == "Debian"
+
+- name: Install basic utilities (Windows)
+  win_chocolatey:
+    name:
+      - git
+      - notepadplusplus
+      - googlechrome
+    state: present
+  when: ansible_os_family == "Windows"

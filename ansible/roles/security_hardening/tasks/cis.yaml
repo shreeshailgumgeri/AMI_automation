@@ -1,0 +1,7 @@
+# Example - Add actual CIS tasks as per your compliance requirements
+- name: Ensure permissions on /etc/passwd are configured
+  file:
+    path: /etc/passwd
+    owner: root
+    group: root
+    mode: '0644'

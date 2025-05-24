@@ -1,0 +1,28 @@
+{
+  "builders": [
+    {
+      "type": "amazon-ebs",
+      "region": "us-west-2",
+      "source_ami_filter": {
+        "filters": {
+          "name": "Windows_Server-2019-English-Full-Base-*",
+          "virtualization-type": "hvm"
+        },
+        "owners": ["801119661308"],
+        "most_recent": true
+      },
+      "instance_type": "t3.medium",
+      "communicator": "winrm",
+      "winrm_username": "Administrator",
+      "ami_name": "windows-base-{{timestamp}}"
+    }
+  ],
+  "provisioners": [
+    {
+      "type": "powershell",
+      "scripts": [
+        "./scripts/install-utils.ps1"
+      ]
+    }
+  ]
+}

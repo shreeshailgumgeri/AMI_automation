@@ -1,0 +1,18 @@
+{
+  "builders": [
+    {
+      "type": "vmware-iso",
+      "iso_url": "path/to/macos-installer.iso",
+      "ssh_username": "admin",
+      "ssh_password": "admin_password",
+      "vm_name": "macos-base",
+      "output_directory": "output-macos-base"
+    }
+  ],
+  "provisioners": [
+    {
+      "type": "shell",
+      "script": "./scripts/hardening.sh"
+    }
+  ]
+}

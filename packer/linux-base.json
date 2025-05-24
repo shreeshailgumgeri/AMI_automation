@@ -1,0 +1,26 @@
+{
+  "builders": [
+    {
+      "type": "amazon-ebs",
+      "region": "us-west-2",
+      "instance_type": "t2.micro",
+      "source_ami_filter": {
+        "filters": {
+          "name": "ubuntu/images/*20.04*",
+          "virtualization-type": "hvm",
+          "root-device-type": "ebs"
+        },
+        "owners": ["099720109477"],
+        "most_recent": true
+      },
+      "ssh_username": "ubuntu",
+      "ami_name": "linux-base-{{timestamp}}"
+    }
+  ],
+  "provisioners": [
+    {
+      "type": "shell",
+      "script": "scripts/hardening.sh"
+    }
+  ]
+}

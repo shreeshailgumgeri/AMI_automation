@@ -1,0 +1,6 @@
+- hosts: all
+  become: yes
+  roles:
+    - common
+    - security_hardening
+    - cloudwatch_agent

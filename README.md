@@ -31,6 +31,7 @@ image-pipeline/
 ├── terraform/
 │   ├── main.tf
 │   └── variables.tf
+│   └── dev.tfvars
 └── .github/workflows/packer-build.yml
 ```
 
