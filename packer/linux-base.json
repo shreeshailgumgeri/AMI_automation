@@ -20,7 +20,7 @@
   "provisioners": [
     {
       "type": "shell",
-      "script": "scripts/hardening.sh"
+      "script": "packer/scripts/hardening.sh"
     }
   ]
 }
