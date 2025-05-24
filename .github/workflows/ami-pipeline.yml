@@ -35,6 +35,15 @@ jobs:
         with:
           version: "latest"
 
+      - name: Install Packer Amazon plugin
+        run: |
+          packer plugins install github.com/hashicorp/amazon
+
+      - name: Check Packer Version and Plugins
+        run: |
+          packer version
+          packer plugins installed
+          
       - name: Run Packer Validate
         run: |
           packer validate packer/linux-base.json
