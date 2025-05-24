@@ -21,6 +21,10 @@
     {
       "type": "shell",
       "script": "packer/scripts/hardening.sh"
+    },
+    {
+      "type": "ansible",
+      "playbook_file": "ansible/playbooks/provision.yml"
     }
   ]
 }
