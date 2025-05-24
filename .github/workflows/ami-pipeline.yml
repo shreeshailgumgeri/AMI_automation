@@ -13,6 +13,10 @@ on:
 jobs:
   stage-1-packer:
     runs-on: ubuntu-latest
+    env:
+      AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+      AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+      
     steps:
       - name: Stage 1 - Packer :- Building AMIs
         run: echo "🟢 Stage 1 :- Packer - Building AMIs (scaffold step)"
