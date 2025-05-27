@@ -2,6 +2,8 @@
 
 ## 🔧 Overview of the Automation Pipeline
 
+[📊 View the Pitch Deck](https://docs.google.com/presentation/d/1XgcAX_3mEOwjYtcpfmCOM2K-Byh7zhLapPTRIIN3Ol0/edit?usp=sharing)
+
 ### **Objective**
 Create a scalable, repeatable, and secure pipeline to build OS images (Windows, Linux, macOS) and deploy them in AWS using:
 
