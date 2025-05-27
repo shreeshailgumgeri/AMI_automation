@@ -62,28 +62,61 @@ jobs:
 
   stage-2-terraform:
     runs-on: ubuntu-latest
+    # env:
+    #   AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+    #   AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
     needs: stage-1-packer
     steps:
       - name: Stage 2 - Terraform :- Deploy AMIs
-        run: echo "🟢 Stage 2 :- Terraform - Deploy AMIs (scaffold step)"
+        run: echo "🟢 Stage 2 :- Terraform - Deploy AMIs "
 
+      # - name: Checkout repository
+      #   uses: actions/checkout@v4
+      
+      # - name: Set up Terraform
+      #   uses: hashicorp/setup-terraform@v3
+      
+      # - name: Configure AWS credentials
+      #   uses: aws-actions/configure-aws-credentials@v4
+      #   with:
+      #     aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+      #     aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+      #     aws-region: ap-south-1 # Set your region
+
+      # - name: Terraform Init
+      #   working-directory: terraform
+      #   run: terraform init
+
+      # - name: Terraform Plan
+      #   working-directory: terraform
+      #   run: terraform plan -out=tfplan
+
+      # - name: Terraform Apply
+      #   working-directory: terraform
+      #   run: terraform apply -auto-approve tfplan
+
+      # # Optional: Output instance IP for next stage
+      # - name: Output Instance Public IP
+      #   working-directory: terraform
+      #   run: |
+      #     terraform output instance_public_ip
   stage-3-cicd:
     runs-on: ubuntu-latest
     needs: stage-2-terraform
     steps:
       - name: Stage 3 - CI/CD :- Orchestration
-        run: echo "🟢 Stage 3:- CI/CD Automation with GitHub Actions (scaffold step)"
+        run: echo "🟢 Stage 3:- CI/CD Automation with GitHub Actions "
 
   stage-4-security:
     runs-on: ubuntu-latest
     needs: stage-3-cicd
     steps:
       - name: Stage 4 - Security and Best Practices
-        run: echo "🟢 Stage 4:- Security and Best Practices (scaffold step)"
+        run: echo "🟢 Stage 4:- Security and Best Practices "
 
   stage-5-final-outcome:
     runs-on: ubuntu-latest
     needs: stage-4-security
     steps:
       - name: Stage 5 - Final Outcome & Review
-        run: echo "✅ Stage 5:- Final Outcome – Pipeline complete (scaffold step)"
+        run: echo "✅ Stage 5:- Final Outcome – Pipeline complete "
