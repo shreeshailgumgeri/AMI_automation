@@ -36,7 +36,8 @@
     state: present
   when: ansible_os_family == "Windows"
 
-- name: Ensure Windows Defender is enabled
-  win_defender:
-    state: enabled
+- name: Ensure Windows Defender feature is installed
+  win_feature:
+    name: Windows-Defender-Features
+    state: present
   when: ansible_os_family == "Windows"
