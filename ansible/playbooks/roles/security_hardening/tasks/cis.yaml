@@ -1,7 +1,93 @@
-# Example - Add actual CIS tasks as per your compliance requirements
 - name: Ensure permissions on /etc/passwd are configured
   file:
     path: /etc/passwd
     owner: root
     group: root
     mode: '0644'
+  when: ansible_os_family == "Debian"
+
+- name: Ensure permissions on /etc/shadow are configured
+  file:
+    path: /etc/shadow
+    owner: root
+    group: root
+    mode: '0000'
+  when: ansible_os_family == "Debian"
+
+- name: Ensure permissions on /etc/group are configured
+  file:
+    path: /etc/group
+    owner: root
+    group: root
+    mode: '0644'
+  when: ansible_os_family == "Debian"
+
+- name: Ensure permissions on /etc/gshadow are configured
+  file:
+    path: /etc/gshadow
+    owner: root
+    group: root
+    mode: '0000'
+  when: ansible_os_family == "Debian"
+
+- name: Ensure password expiration is 90 days or less
+  lineinfile:
+    path: /etc/login.defs
+    regexp: '^PASS_MAX_DAYS'
+    line: 'PASS_MAX_DAYS   90'
+    state: present
+  when: ansible_os_family == "Debian"
+
+- name: Ensure password minimum days between changes is 7 or more
+  lineinfile:
+    path: /etc/login.defs
+    regexp: '^PASS_MIN_DAYS'
+    line: 'PASS_MIN_DAYS   7'
+    state: present
+  when: ansible_os_family == "Debian"
+
+- name: Ensure password minimum length is 14 or more
+  lineinfile:
+    path: /etc/login.defs
+    regexp: '^PASS_MIN_LEN'
+    line: 'PASS_MIN_LEN    14'
+    state: present
+  when: ansible_os_family == "Debian"
+
+- name: Ensure root login is restricted to system console
+  lineinfile:
+    path: /etc/securetty
+    create: yes
+    line: 'console'
+    state: present
+  when: ansible_os_family == "Debian"
+
+- name: Ensure Windows password minimum length is 14 or more
+  win_user_right:
+    name: MinimumPasswordLength
+    value: 14
+  when: ansible_os_family == "Windows"
+
+- name: Ensure Windows password maximum age is 90 days or less
+  win_user_right:
+    name: MaximumPasswordAge
+    value: 90
+  when: ansible_os_family == "Windows"
+
+- name: Ensure Windows account lockout threshold is 5 or fewer invalid attempts
+  win_user_right:
+    name: LockoutBadCount
+    value: 5
+  when: ansible_os_family == "Windows"
+
+- name: Ensure Windows account lockout duration is 15 minutes or more
+  win_user_right:
+    name: LockoutDuration
+    value: 15
+  when: ansible_os_family == "Windows"
+
+- name: Ensure Windows guest account is disabled
+  win_user:
+    name: Guest
+    state: absent
+  when: ansible_os_family == "Windows"
